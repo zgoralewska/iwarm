@@ -1,0 +1,48 @@
+<section class="dashboard">
+    <div class="grid-block shrink wrap">
+        <div class="small-12 large-2 grid-content bg-light-gray-transparent session-info">
+            <h4 class="text-headline">
+                <i class="icon-home4"></i>{{dashboardCtrl.houseName}}, #{{dashboardCtrl.houseUniqueName}}
+                <i class="icon-close clickable" ng-click="dashboardCtrl.removeUserFromHouse()"></i>
+            </h4>
+            <h5>{{dashboardCtrl.loggedUser}}</h5>
+            <span class="separator"></span>
+            <p>
+                <label for="antifrost-temp">Antifrost</label>
+                <input id="antifrost-temp" name="antifrost" type="number"
+                       ng-model="dashboardCtrl.tempAntifrost"
+                       ng-change="dashboardCtrl.updateAntifrostTemp(dashboardCtrl.tempAntifrost)">
+            </p>
+        </div>
+        <div class="small-12 large-5 grid-content">
+            <section class="temp-dashboard text-center">
+                <span class="icon-add control" ng-click="dashboardCtrl.changeTemp(true)"></span>
+                <div class="overview">
+                    <span class="actual">{{dashboardCtrl.tempActual}}</span>
+                    <br>
+                    <span>{{dashboardCtrl.tempChosen}}</span>
+                </div>
+                <span class="icon-remove control" ng-click="dashboardCtrl.changeTemp(false)"></span>
+            </section>
+        </div>
+        <div class="small-12 large-5 grid-content house-dashboard">
+            <div class="outside text-right">
+                <span class="icon-directions_run"></span>
+                <span ng-if="!dashboardCtrl.inhabitantsOutside.length">No one is out of the house</span>
+                <div ng-repeat="person in dashboardCtrl.inhabitantsOutside">
+                    <div class="person"><span class="human icon"></span>{{person.Email}}</div>
+                </div>
+            </div>
+            <div class="inside text-right">
+                <span class="icon-home"></span>
+                <span ng-if="!dashboardCtrl.inhabitantsInside.length">No one is in the house</span>
+                <div ng-repeat="person in dashboardCtrl.inhabitantsInside">
+                    <div class="person"><span class="human icon"></span>{{person.Email}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-hide="dashboardCtrl.new">
+        <house-modal new="dashboardCtrl.new"></house-modal>
+    </div>
+</section>

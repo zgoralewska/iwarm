@@ -1,0 +1,79 @@
+<div class="steps-modal">
+    <div class="content">
+        <input type="hidden" ng-model="$ctrl.modalSelection">
+        <div class="animate-switch-container" ng-switch on="$ctrl.modalSelection">
+            <div class="animate-switch" ng-switch-default>
+                <article>
+                    <h2 class="text-center text-headline">Is your house assigned?</h2>
+                    <div class="btn-wrapper grid-block shrink wrap">
+                        <div class="small-12 medium-6 grid-content text-center">
+                            <button ng-click="$ctrl.modalSelection = 2" class="button alert">No</button>
+                            <small>let me register my house</small>
+                        </div>
+                        <div class="small-12 medium-6 grid-content text-center">
+                            <button ng-click="$ctrl.modalSelection = 3" class="button success">Yes</button>
+                            <small>I want to enter my house unique name</small>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+            <div class="animate-switch" ng-switch-when="2">
+                <div>
+                    <h4>Enter house credentials</h4>
+                    <form name="newForm" method="post" ng-submit="$ctrl.addHouse(newForm, $ctrl.houseNew)" novalidate>
+                        <fieldset>
+                            <div class="form-group">
+                                <input id="radius" name="radius" ng-model="$ctrl.houseNew.radius"
+                                       type="number" min="500" placeholder="Radius in meters" required>
+                                <div role="alert" ng-show="newForm.$submitted || newForm.radius.$touched">
+                                  <span class="alert label" ng-show="newForm.radius.$error.required">
+                                    Required!
+                                  </span>
+                                    <span class="alert label" ng-show="newForm.radius.$error.number">
+                                        Not valid number
+                                  </span>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <div>
+                                <map-input></map-input>
+                            </div>
+                        </fieldset>
+                        <div class="submit-wrapper">
+                            <input type="submit" value="Register" class="button">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="animate-switch" ng-switch-when="3">
+                <form name="existingForm" method="post" ng-submit="$ctrl.addUserToHouse(existingForm, $ctrl.houseExisting)" novalidate>
+                    <fieldset class="before-btn">
+                        <div class="form-group">
+                            <label for="existingUniqueName">Enter your house unique name</label>
+                            <input id="existingUniqueName" name="existingUniqueName" ng-model="$ctrl.houseExisting.uniqueName"
+                                   type="text" ng-minlength="4" ng-maxlength="5" required>
+                            <div role="alert" ng-show="existingForm.$submitted || existingForm.existingUniqueName.$touched">
+                                <span class="alert label" ng-show="existingForm.existingUniqueName.$error.required">
+                                   Required!
+                                </span>
+                                <span class="alert label" ng-show="existingForm.existingUniqueName.$error.minlength">
+                                    Too short. Minimum 4 characters
+                                </span>
+                                <span class="alert label" ng-show="existingForm.existingUniqueName.$error.maxlength">
+                                    Too long. Maximum 5 characters
+                                </span>
+                                <span class="alert label" ng-show="existingForm.existingUniqueName.$error.idinvalid">
+                                    Given unique name does not exit in database
+                                </span>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <input type="submit" value="Add" class="button">
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>

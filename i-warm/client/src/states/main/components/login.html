@@ -1,0 +1,43 @@
+<form name="loginForm" ng-submit="$ctrl.login(loginForm, user)" novalidate>
+    <span class="{{$ctrl.msgLoginClass}}">{{$ctrl.msgLogin}}</span>
+    <fieldset>
+        <div>
+            <div class="form-group">
+                <label for="email">
+                    Email:
+                </label>
+                <input type="text" name="email" id="email" ng-model="user.email"
+                       ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/" required>
+                <div role="alert" ng-show="loginForm.$submitted || loginForm.email.$touched">
+                  <span class="alert label" ng-show="loginForm.email.$error.required">
+                    Required!
+                  </span>
+                    <span class="alert label" ng-show="loginForm.email.$error.pattern">
+                        Not an email pattern
+                  </span>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset>
+        <div>
+            <div class="form-group">
+                <label for="password">
+                    Password:
+                </label>
+                <input type="password" name="password" id="password" ng-model="user.password" ng-minlength="3" required>
+                <div role="alert" ng-show="loginForm.$submitted || loginForm.password.$touched">
+                    <span class="alert label" ng-show="loginForm.password.$error.required">
+                       Required!
+                    </span>
+                    <span class="alert label" ng-show="loginForm.password.$error.minlength">
+                        Too short!
+                    </span>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <div class="submit-wrapper">
+        <input type="submit" value="Login" class="button">
+    </div>
+</form>

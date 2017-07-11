@@ -1,0 +1,58 @@
+<form name="registerForm" ng-submit="$ctrl.register(registerForm, user)" novalidate>
+    <span class="{{$ctrl.msgRegisterClass}}">{{$ctrl.msgRegister}}</span>
+    <fieldset>
+        <div>
+            <div class="form-group">
+                <label for="email">
+                    Email:
+                </label>
+                <input type="text" name="email" id="email" ng-model="user.email"
+                       ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/" required>
+                <div role="alert"  ng-show="registerForm.$submitted || registerForm.email.$touched">
+                  <span class="alert label" ng-show="registerForm.email.$error.required">
+                    Required!
+                  </span>
+                    <span class="alert label" ng-show="registerForm.email.$error.pattern">
+                        Not an email pattern
+                  </span>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset>
+        <div>
+            <div class="form-group">
+                <label for="password">
+                    Password:
+                </label>
+                <input type="password" name="password" id="password" ng-model="user.password" ng-minlength="3" required>
+                <div role="alert" ng-show="registerForm.$submitted || registerForm.password.$touched">
+                    <span class="alert label" ng-show="registerForm.password.$error.required">
+                       Required!
+                    </span>
+                    <span class="alert label" ng-show="registerForm.password.$error.minlength">
+                        Too short!
+                    </span>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset>
+        <div>
+            <div class="form-group">
+                <label for="passwordRepeat">
+                    Repeat password:
+                </label>
+                <input type="password" name="passwordRepeat" id="passwordRepeat" ng-model="user.passwordRepeat" password-match="user.password">
+                <div role="alert">
+                     <span class="alert label" ng-show="registerForm.passwordRepeat.$error.passwordMatch">
+                        Passwords don't match.
+                    </span>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <div class="submit-wrapper">
+        <input type="submit" value="Register" class="button">
+    </div>
+</form>

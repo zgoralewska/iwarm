@@ -1,0 +1,19 @@
+<div>
+    <div class="grid-block shrink vertical">
+        <div class="grid-block shrink wrap">
+            <!--<div class="grid-container">-->
+                <div class="small-12 grid-content bg-light-blue">
+                    <div ng-show="auth.pass">
+                        <navigation list="rootCtrl.list" class="navigation"></navigation>
+                    </div>
+                    <div ng-hide="auth.pass">
+                        <div class="welcome-text">welcome to Iwarm</div>
+                    </div>
+                </div>
+                <div class="small-12 grid-block">
+                    <div ui-view="main" class="container"></div>
+                </div>
+            <!--</div>-->
+        </div>
+    </div>
+</div>

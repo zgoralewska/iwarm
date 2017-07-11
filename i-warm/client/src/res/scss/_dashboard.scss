@@ -1,0 +1,66 @@
+/* Temp dashboard */
+.temp-dashboard{
+  background-color: #fff;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  .control{
+    font-size: 36px;
+    cursor: pointer;
+  }
+
+  .overview{
+    display: table;
+    font-size: 60px;
+    margin: 20px auto;
+
+    > span{
+      position: relative;
+      display: inline-block;
+
+      &:before{
+        content: '°';
+        display: inline;
+        font-size: inherit;
+        position: absolute;
+        top:0;
+        right: -20px;
+      }
+    }
+
+    .actual{
+      font-size: 80px;
+      color: #778899;
+    }
+
+  }
+}
+
+/* House dashboard */
+.house-dashboard{
+  display: flex;
+  align-self: stretch;
+  background-color: #F0F8FF;
+  color: #808080;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  span[class^="icon-"]{
+    font-size: 35px;
+  }
+
+  .inside,
+  .outside{
+    max-width: 50%;
+    flex: 0 0 50%;
+    padding: 0 15px;
+  }
+
+  .inside{
+    border-left: 2px #ececec solid;
+  }
+
+  .person{
+    margin: 5px 0;
+  }
+}

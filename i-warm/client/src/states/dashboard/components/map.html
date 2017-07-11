@@ -1,0 +1,6 @@
+<input class="no-margin" type='text' ng-model='$ctrl.searchInput' value='{{$ctrl.searchInput}}'
+    ng-change='$ctrl.geoSearch($ctrl.searchInput)' ng-model-options="{ updateOn: 'blur'}" placeholder="Search">
+<ng-map class="google-map" center="{{map.center}}" zoom="{{map.zoom}}"
+    streetViewControl="false" scrollwheel="false">
+    <marker position="{{marker.position}}" decimals="{{marker.decimals}}" draggable="true"></marker>
+</ng-map>

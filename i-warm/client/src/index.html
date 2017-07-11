@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- app:css -->
+    <link rel="stylesheet" href="/node_modules/foundation-apps/dist/css/foundation-apps.css">
+    <link rel="stylesheet" href="res/css/app.css">
+    <!-- endinject -->
+
+    <!-- deps:js -->
+    <script src="./assets/js/jquery.js"></script>
+
+    <script src="/node_modules/angular/angular.js"></script>
+    <script src="/node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="/node_modules/angular-cookies/angular-cookies.js"></script>
+    <script src="/node_modules/lodash/lodash.js"></script>
+    <script src="/node_modules/ngmap/build/scripts/ng-map.min.js"></script>
+    <script src="http://maps.google.com/maps/api/js"></script>
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+    <!-- endinject -->
+
+    <!-- app:js -->
+    <script src="./states/main/main.state.js"></script>
+    <script src="./states/main/main.controller.js"></script>
+
+
+    <script src="./states/dashboard/dashboard.state.js"></script>
+    <script src="./states/dashboard/dashboard.controller.js"></script>
+    <script src="./states/addressbook/addressbook.state.js"></script>
+    <script src="./states/addressbook/addressbook.controller.js"></script>
+    <script src="./states/_root/_root.state.js"></script>
+    <script src="./states/_root/_root.controller.js"></script>
+    <script src="./states/addressbook/services/addressbook.service.js"></script>
+
+    <script src="./core/app.components.js"></script>
+    <script src="./components/navigation.component.js"></script>
+    <script src="./states/main/components/login.component.js"></script>
+    <script src="./states/main/components/register.component.js"></script>
+    <script src="./states/dashboard/components/houseModal.component.js"></script>
+    <script src="./states/dashboard/components/map.component.js"></script>
+    <script src="./states/main/components/passwordMatch.directive.js"></script>
+
+
+    <script src="./core/app.services.js"></script>
+    <script src="./core/services/navigation.service.js"></script>
+    <script src="./core/services/auth.service.js"></script>
+    <script src="./states/main/services/email.service.js"></script>
+    <script src="./states/dashboard/services/house.service.js"></script>
+    <script src="./states/dashboard/services/dashboard.service.js"></script>
+    <script src="./states/dashboard/services/socketio.service.js"></script>
+
+    <script src="./core/app.config.js"></script>
+    <script src="./core/config/defaultPage.config.js"></script>
+    <script src="./core/bootstrap.js"></script>
+    <script src="./core/app.states.js"></script>
+    <script src="./core/app.js"></script>
+
+    <script src="/node_modules/foundation-apps/dist/js/foundation-apps.js"></script>
+    <!-- endinject -->
+</head>
+<body class="bg-light-gray">
+    <div ui-view="root"></div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+/* Navigation */
+.welcome-text{
+  min-height: 32px;
+  color: #fff;
+  font-size: 20px;
+  line-height: 32px;
+  text-align: right;
+}
+
+.navigation{
+  a{
+    color: #fff
+  }
+  ul{
+    margin: 0;
+    list-style: none;
+    text-align: right;
+
+    li{
+      display: inline-block;
+      padding: 20px;
+      text-transform: uppercase;
+      transition: background-color .25s ease-in;
+
+      &:hover{
+        background-color: #84ACCB;
+      }
+    }
+  }
+}
